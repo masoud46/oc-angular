@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-12">
+		<h3>Posts</h3>
+		<ul class="list-group">
+			<li	*ngFor="let post of posts; index as i"
+				[ngClass]="{
+				'list-group-item': true,
+				'list-group-item-success': post.loveIts > 0,
+				'list-group-item-danger': post.loveIts < 0
+				}"
+			>
+				<app-post-list-item [post]="post"></app-post-list-item>
+				<button class="btn btn-sm btn-success mr-1" (click)="onLoveIt(i, 1)"><i class="far fa-thumbs-up"></i> Love it</button>
+				<button class="btn btn-sm btn-danger mr-3" (click)="onLoveIt(i, -1)"><i class="far fa-thumbs-down"></i> Don't love it</button>
+				<button class="btn btn-sm btn-danger float-right" (click)="onDeletePost(i)"><i class="far fa-trash-alt"></i> Delete post</button>
+			</li>
+		</ul>
+	</div>
+</div>

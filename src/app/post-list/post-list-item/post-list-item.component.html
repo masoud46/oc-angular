@@ -1,0 +1,18 @@
+<div class="d-flex">
+	<h4 class="flex-grow-1">
+		{{ post.title }}
+		<span style="font-size:0.6em;" [ngClass]="{
+			'ml-2': true,
+			'invisible': post.loveIts === 0
+		}">
+			<i [ngClass]="{
+				'far': true,
+				'fa-thumbs-up': post.loveIts > 0,
+				'fa-thumbs-down': post.loveIts < 0
+			}"></i>
+			{{ abs(post.loveIts) }}
+		</span>
+	</h4>
+	<h6 class="font-italic text-muted">{{ post.createdAt | date:'dd/MM/y, h:mm a' }}</h6>
+</div>
+<p>{{ post.content }}</p>
